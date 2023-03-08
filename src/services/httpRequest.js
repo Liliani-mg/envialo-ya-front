@@ -23,10 +23,10 @@ const httpRequest = (method, endpoint, data, headers = {}) => {
 }
 
 export const getRequest = (endpoint, headers) =>
-  httpRequest('get', endpoint, null, null)
+  httpRequest('get', endpoint, null)
 
-export const postRequest = (endpoint, data, headers) =>
-  httpRequest('post', endpoint, data, null)
+export const postRequest = (endpoint, data) =>
+  httpRequest('post', endpoint, data)
 
 export const putRequest = (endpoint, data, headers) =>
   httpRequest('put', endpoint, data, null)

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import NavBar from "../components/NavBar";
 import Form from "../components/Form";
+import CardCotiz from "../components/CardCotiz";
 
 const imageBg =
   "https://res.cloudinary.com/dxsvkn4eo/image/upload/v1677499400/bg002_rw3qet.jpg";
@@ -13,19 +14,11 @@ function Landing() {
   const navigate = useNavigate();
 
   return (
-    <div >
+    <div  id="background-images" class="d-flex flex-column align-items-center" >
       <NavBar />
+      <CardCotiz/>
       <CarouselLanding />
-      <a
-        class="btn btn-primary rounded-pill "
-        href="/form"
-        // data-bs-toggle="offcanvas"
-        // href="#offcanvasExample"
-        // role="button"
-        // aria-controls="offcanvasExample"
-      >
-        Enviar Dinero
-      </a>
+     
       {/* <div
         class="offcanvas offcanvas-start"
         tabindex="-1"

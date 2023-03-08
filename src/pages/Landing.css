@@ -2,3 +2,7 @@
 position: absolute;
 }
 
+.background-images{
+    background-image: url("https://res.cloudinary.com/dxsvkn4eo/image/upload/v1677499400/bg002_rw3qet.jpg");
+height: 100vh;
+}
