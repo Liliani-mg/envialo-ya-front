@@ -8,7 +8,11 @@ import "./CarouselLanding.css";
 function CarouselLanding() {
   return (
     <div class="d-flex flex-column w-100 h-100 ">
-      <div id="carousel-image" class="carousel slide" data-ride="carousel">
+      <div
+        id="carousel-image"
+        class="carousel h-100 slide d-flex flex-column align-items-center"
+        data-ride="carousel"
+      >
         <div class="carousel-inner">
           <div class="carousel-item carousel-image bg-img-1 active">
             {/* <img class="d-block w-100" src={image1} alt="First slide"></img> */}
@@ -20,7 +24,8 @@ function CarouselLanding() {
             {/* <img class="d-block w-100" src={image3} alt="Third slide"></img> */}
           </div>
         </div>
-        <a
+        {/* <a
+        id="btn-siguiente"
           class="btn btn-primary rounded m-5 mt-1 w-25 "
           href="/form"
           // data-bs-toggle="offcanvas"
@@ -29,7 +34,7 @@ function CarouselLanding() {
           // aria-controls="offcanvasExample"
         >
           Siguiente
-        </a>
+        </a> */}
       </div>
     </div>
   );

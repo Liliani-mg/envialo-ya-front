@@ -12,9 +12,15 @@
 }
 
 .carousel-image{
+    position:relative;
     z-index: 1;
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;    
+}
+
+.btn-siguiente{
+    position: absolute;
+    z-index: 3;
 }

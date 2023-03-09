@@ -8,12 +8,12 @@ const API_URL = import.meta.env.VITE_API_URL;
 function Form() {
   const [input, setInput] = useState({
     date: new Date(),
-    name:"",
+    name: "",
     email: "",
-    realesAmount: "",
-    pesosAmount: "",
-    toAccount:"",
-    fromAccount:"",
+    realesAmount: 0,
+    pesosAmount: 0,
+    toAccount: "",
+    fromAccount: "",
     phone: "",
     description: "",
   });
@@ -24,19 +24,20 @@ function Form() {
     postTransaction(input);
   }
 
- function handleConvert(e){
-    e.preventDefault()
-     const resultChange = getChange("BRL", "ARS", input.montoReales)
-
-  console.log(resultChange);
+  function handleConvert(e) {
+    e.preventDefault();
+   
+   //------ consulta a api externa
+   // const resultChange = getChange("BRL", "ARS", input.montoReales);
   }
- 
 
   async function postTransaction(data) {
     await axios
       .post(API_URL + "/transactions", data)
       .then((response) => {
         const respuesta = response.data.body;
+        response.data.status == true && alert("se envio la solicitud de tu transaccion")
+        console.log(response.data)
         return respuesta;
       })
       .catch((error) => {
@@ -50,17 +51,16 @@ function Form() {
       ...input,
       [e.target.name]: e.target.value,
     };
-    console.log(newInput);
-    setInput(newInput);
+        setInput(newInput);
   }
 
   return (
     <div class="bg-light  d-flex justify-content-center mt-4">
       <div class="card border mw-50 w-75 p-3 rounded">
         <form onSubmit={handleSubmit}>
-        <div class=" form-group">
+          <div class=" form-group">
             <label for="exampleFormControlInput1" class="form-label text-body">
-             Nombre
+              Nombre
             </label>
             <input
               type="text"
@@ -84,46 +84,41 @@ function Form() {
               onChange={handleForm}
             />
           </div>
-
-          {/* <div class="mb-3 mt-3 border border-secondary rounded">
-          <label for="exampleFormControlInput2" class="form-label text-body pb-0 p-3">
-            Monto que envia en pesos
-          </label>
-          <input
-            type="string"
-            name="montoReales"
-            class="form-control w-50 p-3 m-3"
-            id="exampleFormControlInput1"
-            placeholder="Ejemplo: 99,90"
-            onChange={handleForm}
-          />
-        </div> */}
           <div class="mb-3 mt-3 border border-secondary rounded">
-            <label for="exampleFormControlInput2" class="text-body pb-0 p-3">
+          <label
+              for="exampleFormControlInput2"
+              class="form-text text-body m-2 mt-2  pb-0 p-1 text-center  position-absolute bg-white"
+            >
               Monto que envia en Reales
             </label>
             <input
-              type="string"
-              name="montoReales"
+              type="number"
+              name="realesAmount"
               class="form-control w-75 p-3 m-3"
               id="exampleFormControlInput1"
               placeholder="Ejemplo: 99,90"
               onChange={handleForm}
             />
-            <div class="d-flex flex-row">
+            <div class="d-flex align-items-center flex-column w-75 m-3 ">
+            <label class="form-text text-muted m-1 position-absolute bg-white">
+                Monto que deposita en pesos
+              </label>
+              <input
+                class="w-100 p-3 m-3 border rounded border-secondary bg-light"
+                type="number"
+                name="pesosAmount"
+                placeholder="..."
+                onChange={handleForm}
+                readonly
+              />
               <button
-              type="button"
-              class="btn btn-outline-info rounded-pill btn-sm  m-5 mt-2 "
-              onClick={handleConvert}
-            >
-              Verificar
-            </button>
-            <p class="form-text text-muted ">
-              El monto que deposita en pesos:{" "}
-            </p>{" "}
-            <p class="form-text text-muted ">{}</p> 
+                type="button"
+                class="btn btn-outline-info rounded-pill btn-sm  m-5 mt-2 mb-1 "
+                onClick={handleConvert}
+              >
+                Verificar
+              </button>
             </div>
-           
           </div>
           <div class="mb-3">
             <label for="exampleFormControlInput2" class="form-label text-body">
@@ -131,7 +126,7 @@ function Form() {
             </label>
             <input
               type="text"
-              name="telefono"
+              name="phone"
               class="form-control"
               id="exampleFormControlInput1"
               placeholder="+54111234567"
@@ -157,7 +152,7 @@ function Form() {
             </label>
             <input
               type="text"
-              name="descripcion"
+              name="description"
               class="form-control"
               id="exampleFormControlInput1"
               placeholder="Ingrese una descripcion de la transaccion a realizar"
