@@ -3,15 +3,17 @@ import { useState } from "react";
 import { postRequest } from "../services/httpRequest";
 import axios from "axios";
 import { getChange } from "../services/converApiCall";
+import { useNavigate } from "react-router-dom";
 const API_URL = import.meta.env.VITE_API_URL;
 
 function Form() {
+  const navigate = useNavigate()
   const [input, setInput] = useState({
     date: new Date(),
     name: "",
     email: "",
-    realesAmount: 0,
-    pesosAmount: 0,
+    realesAmount: "",
+    pesosAmount: "",
     toAccount: "",
     fromAccount: "",
     phone: "",
@@ -24,21 +26,38 @@ function Form() {
     postTransaction(input);
   }
 
-  function handleConvert(e) {
-    e.preventDefault();
-   
-   //------ consulta a api externa
-   // const resultChange = getChange("BRL", "ARS", input.montoReales);
+  async function resultado(data) {
+    await axios
+      .post(API_URL + "/value/exchange", data)
+      .then((response) => {
+        const respuesta = response.data.body;
+        console.log(respuesta)
+        const newInput = {...input, pesosAmount:respuesta}
+        setInput(newInput)
+        return respuesta;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
+  function handleConvert(e) {
+    e.preventDefault();
+      resultado(input);
+    // ---------esta es la ocnsulta a una api ext .50%
+    // const resultChange = getChange("BRL", "ARS", input.montoReales);
+  }
   async function postTransaction(data) {
     await axios
       .post(API_URL + "/transactions", data)
       .then((response) => {
         const respuesta = response.data.body;
-        response.data.status == true && alert("se envio la solicitud de tu transaccion")
+        if(response.data.status == true) {
+        alert("se envio la solicitud de tu transaccion, nos pondremos en contacto con vos")
+        navigate("/")
         console.log(response.data)
-        return respuesta;
+        return respuesta
+      }
       })
       .catch((error) => {
         console.log(error);
@@ -107,7 +126,7 @@ function Form() {
                 class="w-100 p-3 m-3 border rounded border-secondary bg-light"
                 type="number"
                 name="pesosAmount"
-                placeholder="..."
+                placeholder={input.pesosAmount}
                 onChange={handleForm}
                 readonly
               />

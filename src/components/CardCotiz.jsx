@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { postRequest } from "../services/httpRequest";
 //import { getChange } from "../services/converApiCall";
+import axios from "axios";
+const API_URL = import.meta.env.VITE_API_URL;
 
 function CardCotiz() {
   const [input, setInput] = useState({
     realesAmount: "",
+    pesosAmount: "",
   });
 
   function handleChange(e) {
@@ -16,15 +19,26 @@ function CardCotiz() {
     console.log(newInput);
     setInput(newInput);
   }
+  async function resultado(data) {
+    await axios
+      .post(API_URL + "/value/exchange", data)
+      .then((response) => {
+        const respuesta = response.data.body;
+        console.log(respuesta)
+        const newInput = {...input, pesosAmount:respuesta}
+        setInput(newInput)
+        return respuesta;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   function handleConvert(e) {
     e.preventDefault();
-    const resultado = postRequest("post", input, "value/exchange")
-    console.log(resultado);
-
-   // ---------esta es la ocnsulta a una api ext .50%
+      resultado(input);
+    // ---------esta es la ocnsulta a una api ext .50%
     // const resultChange = getChange("BRL", "ARS", input.montoReales);
-
   }
 
   return (
@@ -57,7 +71,7 @@ function CardCotiz() {
               <input
                 class="form-control w-100 p-3 m-3 border rounded border-secondary bg-light"
                 type="text"
-                placeholder="23"
+                placeholder={input.pesosAmount}
                 readonly
               />
               <div class="d-flez flez-row justify-content-center">
@@ -72,7 +86,7 @@ function CardCotiz() {
                   id="btn-siguiente"
                   class="btn btn-primary rounded m-1 mt-1 h-75 "
                   href="/form"
-                 >
+                >
                   Siguiente
                 </a>
               </div>
