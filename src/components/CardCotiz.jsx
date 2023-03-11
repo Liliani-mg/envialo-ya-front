@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { postRequest } from "../services/httpRequest";
 //import { getChange } from "../services/converApiCall";
 import axios from "axios";
+import "../pages/Landing.css"
 const API_URL = import.meta.env.VITE_API_URL;
 
 function CardCotiz() {
@@ -9,6 +10,8 @@ function CardCotiz() {
     realesAmount: "",
     pesosAmount: "",
   });
+
+ const valorPeso = 0.073
 
   function handleChange(e) {
     e.preventDefault();
@@ -43,33 +46,34 @@ function CardCotiz() {
 
   return (
     <div
-      id="card-cotiz"
-      class="container modal d-inline-flex align-items-center w-100"
+     
+      class="container-fuid d-inline-flex align-items-center bg-transparent w-75 mt-5 "
     >
-      <div class="m-4"></div>
-      <div class="rounded m-4  d-flex justify-content-center w-100">
-        <div class="card bg-white w-100">
+     
+      <div class="rounded m-3  d-flex justify-content-center w-100 bg-transparent">
+        <div  class="card w-100 bg-transparent ">
           <div class="border border-light rounded p-4 pt-3 pb-2  d-flex align-items-center flex-column">
+            <h5>1 BRL = {valorPeso} ARS</h5>
             <label
               for="exampleFormControlInput2"
-              class="form-text text-body m-2 mt-0  pb-0 p-1 text-center  position-absolute bg-white"
+              class="form-text m-2 mt-0  pb-0 p-1 text-center bg-transparent  text-white"
             >
               Monto que envia en Reales
             </label>
             <input
               type="string"
               name="realesAmount"
-              class="form w-100 p-3 m-3 border rounded border-secondary"
+              class="form w-100 p-3 m-3 border rounded border-white  bg-transparent"
               id="exampleFormControlInput1"
               placeholder="Ejemplo: 99,90"
               onChange={handleChange}
             />
             <div class="d-flex align-items-center flex-column w-100">
-              <label class="form-text text-muted m-2 mt-0 pb-0 p-1 text-center  position-absolute bg-white">
-                Monto que deposita en pesos
+              <label class="form-text  text-white  m-2 mt-0 pb-0 p-1 text-center bg-transparent">
+                Monto que deposita en Pesos
               </label>
               <input
-                class="form-control w-100 p-3 m-3 border rounded border-secondary bg-light"
+                class="form-control w-100 p-3 m-3 border rounded border-white bg-transparent"
                 type="text"
                 placeholder={input.pesosAmount}
                 readonly
@@ -78,13 +82,13 @@ function CardCotiz() {
                 <button
                   type="button"
                   onClick={handleConvert}
-                  class="btn btn-outline-info rounded btn-sm m-1 mt-2 mb-1 m-50 "
+                  class="btn btn-outline-info rounded m-1 mt-1 mb-1 m-50 p-2 "
                 >
-                  Verificar
+                  Cotizar
                 </button>
                 <a
                   id="btn-siguiente"
-                  class="btn btn-primary rounded m-1 mt-1 h-75 "
+                  class="btn btn-primary rounded m-1 mt-1 mb-1 m-50 p-2 "
                   href="/form"
                 >
                   Siguiente

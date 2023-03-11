@@ -7,7 +7,7 @@ import "./CarouselLanding.css";
 
 function CarouselLanding() {
   return (
-    <div class="d-flex flex-column w-100 h-100 ">
+    <div  class="d-flex flex-column w-100 h-100 ">
       <div
         id="carousel-image"
         class="carousel h-100 slide d-flex flex-column align-items-center"
@@ -24,17 +24,7 @@ function CarouselLanding() {
             {/* <img class="d-block w-100" src={image3} alt="Third slide"></img> */}
           </div>
         </div>
-        {/* <a
-        id="btn-siguiente"
-          class="btn btn-primary rounded m-5 mt-1 w-25 "
-          href="/form"
-          // data-bs-toggle="offcanvas"
-          // href="#offcanvasExample"
-          // role="button"
-          // aria-controls="offcanvasExample"
-        >
-          Siguiente
-        </a> */}
+
       </div>
     </div>
   );
