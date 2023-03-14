@@ -31,21 +31,20 @@ function NavBar() {
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            {
-              location.pathname === "/form" ?
+            {location.pathname === "/form" ? (
               <li class="nav-item">
-              <a class="nav-link text-white" aria-current="page"  href="/" >
-               Volver a Home
-              </a>
-            </li>
-            :
-            <li class="nav-item">
-            <a class="nav-link text-white" aria-current="page"  href="/form" >
-              Enviar dinero
-            </a>
-          </li>
-            }
-      
+                <a class="nav-link text-white" aria-current="page" href="/">
+                  Volver a Home
+                </a>
+              </li>
+            ) : (
+              <li class="nav-item">
+                <a class="nav-link text-white" aria-current="page" href="/form">
+                  Enviar dinero
+                </a>
+              </li>
+            )}
+
             <li class="nav-item">
               <a class="nav-link  text-white" href="#">
                 Registrarse
