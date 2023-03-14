@@ -63,7 +63,7 @@ function CardCotiz() {
             <input
               type="string"
               name="realesAmount"
-              class="form w-100 p-3 m-3 border rounded border-white  bg-transparent"
+              class="form w-100 p-3 m-3 border rounded border-white  bg-transparent text-white"
               id="exampleFormControlInput1"
               placeholder="Ejemplo: 99,90"
               onChange={handleChange}
@@ -73,9 +73,10 @@ function CardCotiz() {
                 Monto que deposita en Pesos
               </label>
               <input
-                class="form-control w-100 p-3 m-3 border rounded border-white bg-transparent"
-                type="text"
-                placeholder={input.pesosAmount}
+                class="form w-100 p-3 m-3 border rounded border-white bg-transparent text-white"
+                type="string"
+                value= {Number(input.pesosAmount).toFixed(2)}
+                placeholder="..."
                 readonly
               />
               <div class="d-flez flez-row justify-content-center">

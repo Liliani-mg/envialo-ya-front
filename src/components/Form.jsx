@@ -21,6 +21,12 @@ function Form() {
   });
   // const urlSheets = "https://script.google.com/macros/s/1yr-RsIlJk-VgxY-VmnytbNV2_CuJyeirbaHx5oK9FrXZDYSwryVA1x6L/exec"
 
+  function redirect() {
+    window.open(`https://api.whatsapp.com/send?phone=5493512357521&&text=%C2%A1Hola%20%F0%9F%91%8B!%20mi%20nombre%20es%20${input.name}%20y%20quisiera%20hacer%20un%20envío%20de%20dinero%20a%20la%20cuenta%20Nro:%20${input.toAccount},%20por%20el%20monto%20de:%20$${input.realesAmount}%20Reales,%20por%20el%20valor%20de:%20$${Number(input.pesosAmount).toFixed(2)}%20Pesos.%20Mi%20email%20es:%20${input.email}%20.`, "_blank");
+   
+  }
+
+
   function handleSubmit(e) {
     e.preventDefault();
     postTransaction(input);
@@ -54,6 +60,7 @@ function Form() {
         const respuesta = response.data.body;
         if(response.data.status == true) {
         alert("se envio la solicitud de tu transaccion, nos pondremos en contacto con vos")
+        redirect();
         navigate("/")
         console.log(response.data)
         return respuesta
@@ -74,7 +81,7 @@ function Form() {
   }
 
   return (
-    <div class="bg-light  d-flex justify-content-center mt-4">
+    <div class="bg-light  d-flex justify-content-center mt-5 bg-transparent mb-5">
       <div class="card border mw-50 w-75 p-3 rounded">
         <form onSubmit={handleSubmit}>
           <div class=" form-group">
@@ -126,7 +133,7 @@ function Form() {
                 class="w-100 p-3 m-3 border rounded border-secondary bg-light"
                 type="number"
                 name="pesosAmount"
-                placeholder={input.pesosAmount}
+                placeholder={Number(input.pesosAmount).toFixed(2)}
                 onChange={handleForm}
                 readonly
               />

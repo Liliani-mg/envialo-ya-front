@@ -1,7 +1,8 @@
 #nav{
-    background-color: transparent;
-    position: fixed;
+    background-color: rgba(137, 43, 226, 0.308) ;
+    position: sticky;
     width: 100%;
+    height: fit-content;
     z-index: 2;
     font-family: 'Montserrat', sans-serif;
     color: aliceblue;
