@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { postRequest } from "../services/httpRequest";
+import { postRequest } from "../../services/httpRequest";
 //import { getChange } from "../services/converApiCall";
 import axios from "axios";
-import "../pages/Landing.css"
+import "../../pages/Landing.css"
 const API_URL = import.meta.env.VITE_API_URL;
 
 function CardCotiz() {

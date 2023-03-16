@@ -4,14 +4,13 @@
     /* filter: opacity(90%); */
     background-image: 
     linear-gradient(
-          rgba(237, 9, 195, 0.712),  rgba(104, 5, 131, 0.893)
+          rgba(255, 2, 209, 0.651),  rgba(121, 4, 153, 0.753)
     ),url("https://res.cloudinary.com/dxsvkn4eo/image/upload/v1677499400/bg002_rw3qet.jpg");
     filter: opacity(90%);
-    height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;  
-    width: 100%;
+    width: fit-content;
  }
  #card-cotiz{
     color: white;

@@ -1,10 +1,10 @@
 import React from "react";
-import CarouselLanding from "../components/CarouselLanding";
+import CarouselLanding from "../components/Landing/CarouselLanding";
 import NavBar from "../components/NavBar";
-import CardCotiz from "../components/CardCotiz";
+import CardCotiz from "../components/Landing/CardCotiz";
 import "./Landing.css";
-import TextTitleLanding from "../components/TextTitleLanding";
-import Beneficios from "../components/Beneficios";
+import TextTitleLanding from "../components/Landing/TextTitleLanding";
+import Beneficios from "../components/Landing/Beneficios";
 
 // const imageBg =
 //   "https://res.cloudinary.com/dxsvkn4eo/image/upload/v1677499400/bg002_rw3qet.jpg";
@@ -16,7 +16,7 @@ function Landing() {
   }
 
   return (
-    <div  class="d-flex flex-column">
+    <div  class="d-flex flex-column ">
       <div id="background-images">
         <NavBar />
      <div  class="d-md-flex justify-content-around ">

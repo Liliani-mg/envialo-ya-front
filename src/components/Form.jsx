@@ -19,10 +19,9 @@ function Form() {
     phone: "",
     description: "",
   });
-  // const urlSheets = "https://script.google.com/macros/s/1yr-RsIlJk-VgxY-VmnytbNV2_CuJyeirbaHx5oK9FrXZDYSwryVA1x6L/exec"
 
   function redirect() {
-    window.open(`https://api.whatsapp.com/send?phone=5493512357521&&text=%C2%A1Hola%20%F0%9F%91%8B!%20mi%20nombre%20es%20${input.name}%20y%20quisiera%20hacer%20un%20envío%20de%20dinero%20a%20la%20cuenta%20Nro:%20${input.toAccount},%20por%20el%20monto%20de:%20$${input.realesAmount}%20Reales,%20por%20el%20valor%20de:%20$${Number(input.pesosAmount).toFixed(2)}%20Pesos.%20Mi%20email%20es:%20${input.email}%20.`, "_blank");
+    window.open(`https://api.whatsapp.com/send?phone=5493512357521&&text=%C2%A1Hola%20%F0%9F%91%8B!%20mi%20nombre%20es%20${input.name}%20y%20quisiera%20hacer%20un%20envío%20de%20dinero%20a%20la%20cuenta%20Nro:%20${input.toAccount},%20por%20el%20monto%20de:%20$${input.realesAmount}%20Reales,%20por%20el%20valor%20de:%20$${Number(input.pesosAmount).toFixed(2)}%20Pesos.%20Mi%20email%20es:%20${input.email}%20. Otros%20detalles:%20 ${input.description}`, "_blank");
    
   }
 
