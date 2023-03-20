@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Pagination from "../Pagination";
+import Swal from "sweetalert2";
 const API_URL = import.meta.env.VITE_API_URL;
 
 function DashboardTransactions() {
@@ -24,24 +25,25 @@ function DashboardTransactions() {
 
   function handleInputChange(e){
     e.preventDefault();
-    console.log(busqueda.email);
-    setBusqueda({email: e.target.value});
+    const newBusqueda = {...busqueda, email: e.target.value}
+    setBusqueda(newBusqueda);
   }
   function handleSubmitSearch(e){
     e.preventDefault();
-  //  if(busqueda.email?.length === 0){
-  //     alert("Ingrese un email para realizar la busqueda")
-  //   }
-    getTransactionsByEmail(busqueda.email)
-    setBusqueda({email: ""});
+    if(!busqueda.email){
+      Swal.fire("ingrese un email");
+    } else {
+    getTransactionsByEmail(busqueda)
+    setBusqueda({email: ""}); 
+    }
+    
 
   }
   async function getTransactionsByEmail(busqueda) {
     await axios
-      .get(API_URL + "/transactions/search", busqueda)
+      .get(API_URL + `/transactions/search?email=${busqueda.email}`)
       .then((response) => {
         const respuesta = response.data.body;
-        console.log(respuesta);
         setTransactions(respuesta);
         setCurrentPage(1);
         return respuesta;
@@ -71,7 +73,7 @@ function DashboardTransactions() {
           class="btn btn-outline-primary"
           type="button"
           id="button-addon1"
-          onSubmit={handleSubmitSearch}
+          onClick={handleSubmitSearch}
         >
           Buscar
         </button>

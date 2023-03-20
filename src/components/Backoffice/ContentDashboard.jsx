@@ -9,7 +9,7 @@ function ContentDashboard() {
   const isTransact = "/panelAdmin/transacciones";
 
   return (
-    <div class="container-fluid bg-light">
+    <div id="container" class="container-fluid bg-light">
       <NavBar />
       <div class="d-flex flex-column-2">
         <div>

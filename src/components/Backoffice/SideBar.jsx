@@ -4,11 +4,11 @@ function SideBar() {
   return (
     <div>
       <div class="d-flex flex-column-2 p-2 hover mt-5 w-100 ">
-        <div class="d-flex flex-column sidebar w-25 bg-light  ">
+        <div class="d-flex flex-column sidebar  ">
           <ul class="nav nav-pills nav-fill">
             <li class="nav-item">
               <a
-                class="nav-link "
+                class="nav-link text-white"
                 aria-current="page"
                 href="/panelAdmin/transacciones"
               >
@@ -16,7 +16,7 @@ function SideBar() {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/panelAdmin/cotizaciones">
+              <a class="nav-link text-white" href="/panelAdmin/cotizaciones">
                 Cotizaciones
               </a>
             </li>

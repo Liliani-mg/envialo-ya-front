@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import NavBar from "../NavBar";
 import SideBar from "./SideBar";
+import "./ContainerBackoffice.css";
+
 
 function ContainerBackoffice() {
  
   
     return (
-      <div class="container-fluid bg-light">
+      <div id="container" class="container-fluid bg-light">
           <NavBar/>
-          <div class="d-flex flex-column-2">
+          <div class="d-flex flex-column">
            <SideBar/>
            <div class="d-flex flex-column justify-content-center align-items-center border rounded-2 p-3 pb-1 bg-success m-4 mt-1">
             <ul>
