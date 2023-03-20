@@ -29,7 +29,7 @@ function CardCotiz() {
         console.log(error);
       });
   }
- const valorPeso = (1*Number(lastcotization.valueReal))
+ const valorPeso = (1*Number(lastcotization?.valueReal))
 
 
   function handleChange(e) {
