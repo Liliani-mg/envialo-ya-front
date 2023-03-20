@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { postRequest } from "../../services/httpRequest";
 //import { getChange } from "../services/converApiCall";
 import axios from "axios";
@@ -10,8 +10,27 @@ function CardCotiz() {
     realesAmount: "",
     pesosAmount: "",
   });
+  const [lastcotization, setLastcotization] = useState();
 
- const valorPeso = 0.073
+  useEffect(() => {
+    getLastCotization()
+  }, [])
+  
+
+  async function getLastCotization() {
+    await axios
+      .get(API_URL + "/value")
+      .then((response) => {
+        const respuesta = response.data.body;
+        setLastcotization(respuesta);
+        return respuesta;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+ const valorPeso = (1*Number(lastcotization.valueReal))
+
 
   function handleChange(e) {
     e.preventDefault();
