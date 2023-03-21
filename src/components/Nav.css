@@ -1,9 +1,15 @@
 #nav{
-    background-color: transaparent ;
-    position: sticky;
+    background-color: transparent;
+    position: absolute;
     width: 100%;
     height: fit-content;
     z-index: 2;
     font-family: 'Montserrat', sans-serif;
     color: aliceblue;
+ 
+}
+
+#nav li :hover{
+    border-bottom: 2px solid;
+  
 }

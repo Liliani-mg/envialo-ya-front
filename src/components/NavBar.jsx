@@ -29,7 +29,7 @@ function NavBar() {
         >
           <span class="navbar-toggler-icon "></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse rounded-3 p-3 mt-1" id="navbarNav">
           <ul class="navbar-nav">
             {location.pathname === "/form" ? (
               <li class="nav-item">
