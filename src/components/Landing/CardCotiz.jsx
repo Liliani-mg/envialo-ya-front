@@ -65,11 +65,10 @@ function CardCotiz() {
 
   return (
     <div
-     
-      class="container-fuid d-inline-flex align-items-center bg-transparent w-75 mt-5 "
+     class="container-fuid d-inline-flex align-items-center bg-transparent w-75 mt-5 "
     >
      
-      <div class="rounded m-3  d-flex justify-content-center w-100 bg-transparent">
+      <div class="rounded m-3  d-flex justify-content-center w-100 bg-transparent mt-5">
         <div  class="card w-100 bg-transparent ">
           <div class="border border-light rounded p-4 pt-3 pb-2  d-flex align-items-center flex-column">
             <h5>1 BRL = {valorPeso} ARS</h5>

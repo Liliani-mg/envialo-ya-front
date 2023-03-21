@@ -5,30 +5,42 @@ import CardCotiz from "../components/Landing/CardCotiz";
 import "./Landing.css";
 import TextTitleLanding from "../components/Landing/TextTitleLanding";
 import Beneficios from "../components/Landing/Beneficios";
+import Beneficios2 from "../components/Landing/Beneficios2";
 
 // const imageBg =
 //   "https://res.cloudinary.com/dxsvkn4eo/image/upload/v1677499400/bg002_rw3qet.jpg";
 
 function Landing() {
   function redirect() {
-    window.open(`https://api.whatsapp.com/send?phone=5493512357521&&text=%C2%A1Hola%20%F0%9F%91%8B!%20Quisiera hacer una transaccion o consulta%20doy%20.`, "_blank");
-   
+    window.open(
+      `https://api.whatsapp.com/send?phone=5493512357521&&text=%C2%A1Hola%20%F0%9F%91%8B!%20Quisiera hacer una transaccion o consulta%20doy%20.`,
+      "_blank"
+    );
   }
 
   return (
-    <div  class="d-flex flex-column ">
-      <div id="background-images">
+    <div class="d-flex flex-column" >
+      <div id="background-images" >
         <NavBar />
-     <div  class="d-md-flex justify-content-around ">
-        {/* <CarouselLanding /> */}
-        <TextTitleLanding />
-        <CardCotiz />
+        <div class="d-sm-flex flex-lg-row mb-5 pb-5 ">
+          <TextTitleLanding />
+          <CarouselLanding />
+          <CardCotiz />
+        </div>
+        <div
+          id="container-beneficios"
+          class=" d-md-flex justify-content-center"
+        >
+          <Beneficios />
+        </div>
+        <div
+          id="container-beneficios"
+          class=" d-md-flex justify-content-center"
+        >
+          <Beneficios2 />
+        </div>
       </div>
-      <div id="container-beneficios" class=" d-md-flex justify-content-center">
-        <Beneficios />
-      </div>
-      </div>
- 
+
       <button onClick={redirect} id="btn-wsp">
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -4,14 +4,14 @@
     /* filter: opacity(90%); */
     background-image: 
     linear-gradient(
-          rgba(255, 2, 209, 0.651),  rgba(121, 4, 153, 0.753)
-    ),url("https://res.cloudinary.com/dxsvkn4eo/image/upload/v1677499400/bg002_rw3qet.jpg");
-    filter: opacity(90%);
+      rgba(255, 9, 210, 0.548), 25%, rgba(70, 5, 88, 0.582)
+    );
+    /* filter: opacity(100%); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;  
     width: fit-content;
- }
+}
  #card-cotiz{
     color: white;
  }
@@ -25,10 +25,8 @@
 position: fixed;
   width: 48px;
   height: 48px;
-  /* line-height: 55px; */
   bottom: 50px;
   right: 23px;
-  /* padding: -20px; */
   background: #0df053;
   color: #fff;
   border: transparent;
