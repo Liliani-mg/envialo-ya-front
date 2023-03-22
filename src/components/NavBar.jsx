@@ -46,7 +46,7 @@ function NavBar() {
             )}
 
             <li class="nav-item">
-              <a class="nav-link  text-white" href="#">
+              <a class="nav-link  text-white" href="/login">
                 Registrarse
               </a>
             </li>
