@@ -67,8 +67,8 @@ function DashboardTransactions() {
       });
   }
   return (
-    <div>
-      <div class="input-group  mb-3">
+    <div class=" mt-5 pt-3">
+      <div class="input-group  mb-3 ">
         <button
           class="btn btn-outline-primary"
           type="button"
@@ -100,13 +100,13 @@ function DashboardTransactions() {
         paginado={paginado}
         currentPage={currentPage}
       />
-      <div class=" tablealign-middle  fs-6 h-100 w-100">
-        <table class="table table-sm table-hover caption-top">
+      <div class=" tablealign-middle  fs-6 h-100 w-100 ">
+        <table class="table table-sm table-hover caption-top text-truncate bg-light rounded-3 p-3 mb-3">
           <caption class="fw-light mb-0 pb-0 text-primary">
             List of users
           </caption>
 
-          <thead>
+          <thead >
             <tr>
               <th scope="col">#</th>
               <th scope="col">Fecha</th>

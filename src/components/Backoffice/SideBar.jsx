@@ -3,7 +3,7 @@ import React from "react";
 function SideBar() {
   return (
     <div>
-      <div class="d-flex flex-column-2 p-2 hover mt-5 w-100 ">
+      <div class="d-flex flex-column p-2 hover mt-5 w-100 ">
         <div class="d-flex flex-column sidebar  ">
           <ul class="nav nav-pills nav-fill">
             <li class="nav-item">

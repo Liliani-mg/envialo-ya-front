@@ -210,7 +210,7 @@ function DashoardCotiz() {
   }
 
   return (
-    <div class="d-flex flex-column">
+    <div class="d-flex flex-column mt-5 pt-3">
       <div class="d-flex flex-column-3">
         <div class="d-flex flex-column m-2">
           <button

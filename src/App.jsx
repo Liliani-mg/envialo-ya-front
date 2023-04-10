@@ -10,7 +10,7 @@ function App() {
    <Router>
       {/* <NavBar/> */}
       <AppRoutes/>
-      <Footer/>
+      {/* <Footer/> */}
    </Router>
    
   )
